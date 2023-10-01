@@ -172,3 +172,136 @@ public class exercicio3 {
 
 '''
 
+### 4. Escreva um algoritmo que leia dois valores: o primeiro servindo de indicador de operação e o segundo correspondendo ao raio de um círculo ou esfera. Caso o primeiro valor lido seja:
+a. 1: calcular e imprimir o perímetro do círculo.
+
+b. 2: calcular e imprimir a área do círculo.
+
+c. 3: calcular e imprimir o volume da esfera.
+
+Se o primeiro valor lido for diferente desses três valores possíveis, imprimir uma mensagem de erro, informando que o código da operação é inválido.
+
+'''
+
+package lista3;
+import java.util.Scanner;
+public class exercicio4 {
+	
+	public static void main(String[] args) {
+
+		Scanner read = new Scanner(System.in);
+		
+		System.out.println("Selecione uma opção, sendo elas: ");
+		System.out.println("1. Calcular o perímetro do círculo");
+		System.out.println("2. Calcular a área do círculo");
+		System.out.println("3. Calcular o volume da esfera");
+			int opcao = read.nextInt();
+		
+			switch (opcao) {
+			case 1:
+				System.out.print("Informe o raio do círculo: ");
+				int raio = read.nextInt();
+				double perimetro = 2 * Math.PI * raio;
+				System.out.printf("O perímetro do círuclo equivale a %.2f.", perimetro);
+				break;
+			case 2:
+				System.out.print("Informe o raio do círculo: ");
+				int raio1 = read.nextInt();
+				double area = Math.PI * Math.pow(raio1, 2);
+				System.out.printf("A área do círuclo equivale a %.2f.", area);
+				break;
+			case 3:
+				System.out.print("Informe o raio do círculo: ");
+				int raio2 = read.nextInt();	
+				double volume = (4 * Math.PI * Math.pow(raio2, 3))/3;
+				System.out.printf("O volume da esfera equivale a %.2f.", volume);
+				break;
+			default:
+				System.out.print("CÓDIGO DA OPERAÇÃO INVÁLIDO!");
+		}
+	}
+
+}
+
+'''
+
+### 5. Escrever um algoritmo que leia a partir do teclado dois números reais e um dos símbolos de operação: + , - , * , / ou ^ . O algoritmo deve retornar o resultado da operação. Caso o símbolo informado seja diferente dos símbolos preestabelecidos, o algoritmo deve apresentar uma mensagem de erro, informando que o símbolo da operação é inválido.
+
+''' 
+
+package lista3;
+import java.util.Scanner;
+public class exercicio5 {
+	
+	public static void main(String[] args) {
+
+		Scanner read = new Scanner(System.in);
+		
+		System.out.print("Informe o 1° número: ");
+			double n1 = read.nextDouble();
+		System.out.print("Informe o 2° número: ");
+			double n2 = read.nextDouble();
+		System.out.print("Selecione a natureza da operação, sendo + (soma), - (substração), * (multiplicação), / (divisão) e ^ (potenciação): ");
+			String opcao = read.next();
+		
+		if (opcao.equals("+")) {
+			double resultado_soma = n1 + n2;
+			System.out.printf("%f + %f = %.1f", n1, n2, resultado_soma);
+		}
+		else if (opcao.equals("-")) {
+				double resultado_substracao = n1 - n2;
+				System.out.printf("%f - %f = %.1f", n1, n2, resultado_substracao);
+		}
+		else if (opcao.equals("*")) {
+			double resultado_multiplicacao = n1 * n2;
+			System.out.printf("%f x %f = %.1f", n1, n2, resultado_multiplicacao);
+		}
+		else if (opcao.equals("/")) {
+			double resultado_divisao = n1 / n2;
+			System.out.printf("%f / %f = %.1f", n1, n2, resultado_divisao);
+		}
+		else if (opcao.equals("^")) {
+			double resultado_pow = Math.pow(n1, n2);
+			System.out.printf("%f ^ %f = %.1f", n1, n2, resultado_pow);
+		}
+		else {
+			System.out.print("Operação inválida!");
+		}
+	}
+}
+
+'''
+
+### 6. Crie um algoritmo que leia dois números inteiros e realize o sorteio de um número aleatório. O algoritmo deve validar qual é o menor e o maior número informado pelo teclado, para que independente da ordem que o usuário digite os números, consiga realizar o sorteio. Se o algoritmo gerar um número par, escreva na tela o número gerado e informe que ele é par. Se o algoritmo gerar um número ímpar, escreva na tela o número gerado e que ele é um número ímpar.
+
+'''
+
+package lista3;
+import java.util.Scanner;
+import java.util.Random;
+public class exercicio6 {
+	
+	public static void main(String[] args) {
+	    Random aleatorio = new Random();
+	    Scanner read = new Scanner(System.in);
+		    System.out.print("Digite o primeiro número: ");
+		        int n1 = read.nextInt();
+		    System.out.print("Digite o segundo número: ");
+		        int n2 = read.nextInt();
+		
+		    int maiorNum = Math.max(n1, n2);
+		    int menorNum = Math.min(n1, n2);
+		
+		    int numAleatorio = aleatorio.nextInt(menorNum, maiorNum + 1);
+		    System.out.println("Número gerado aleatoriamente: " + numAleatorio);
+		    
+		    if (numAleatorio % 2 == 0){
+		        System.out.print("O número gerado é par!");
+		    }
+		    else {
+		        System.out.print("O número gerado é ímpar!");
+		    }
+	}
+}
+
+'''
